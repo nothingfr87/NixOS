@@ -69,7 +69,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run \
 -p 'Run: '
 
 # Screenshot
-bindsym Print exec --no-startup-id scrot 
+bindsym Print exec --no-startup-id flameshot gui
 
 # change focus
 bindsym $mod+$left focus left
