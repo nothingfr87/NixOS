@@ -10,7 +10,7 @@
     enable = true;
     shellAliases = {
       vim = "nvim";
-      nrs = "sudo nixos-rebuild switch";
+      nrs = "sudo nixos-rebuild switch --flake /etc/nixos#null-pc";
     };
     initExtra = ''
       export PS1='\[\e[38;5;82m\]\u\[\e[0m\] in \[\e[38;5;81m\]\w\[\e[0m\] \\$ '

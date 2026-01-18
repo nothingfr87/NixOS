@@ -1,21 +1,10 @@
 { config, pkgs, ... }:
-#let
-#  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz";
-#in
+
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #(import "${home-manager}/nixos")
     ];
-
-  # Home Manager
-  #home-manager = {
-  #  useGlobalPkgs = true;
-  #  useUserPackages = true;
-  #  users.nothing = import ./home.nix;
-  #  backupFileExtension = "backup";
-  #};
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -49,9 +38,24 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Enable DBUS and Policy Kit
+  services.dbus.enable = true;
+  security.polkit.enable = true;
+
+
   # Enable the Cinnamon Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.cinnamon.enable = true;
+
+
+  # Enable i3 Window Manager
+  services.xserver.windowManager.i3 = {
+    enable = true; 
+    extraPackages = with pkgs; [
+      dmenu
+      i3status
+    ];
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -90,6 +94,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    fastfetch
     wget
     gcc
     libgcc
@@ -99,6 +104,9 @@
     neovim
     xclip
     wl-clipboard
+    alacritty
+    feh
+    picom
   ];
 
   # Font Packages
