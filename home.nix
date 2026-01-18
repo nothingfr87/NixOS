@@ -18,7 +18,6 @@
     nixpkgs-fmt
     # Languages Compilers & Interpreters
     lua
-    luajit
     nodejs
     typescript
     gcc
