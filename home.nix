@@ -17,10 +17,14 @@
     '';
   };
 
-  # GIT
-    programs.git = {
+  # Git
+  programs.git = {
     enable = true;
-    userName = "Nothing";
-    userEmail = "173809041+nothingfr87@users.noreply.github.com";
+    settings = {
+      user = {
+        name = "Nothing";
+	email = "173809041+nothingfr87@users.noreply.github.com";
+      };
+    };
   };
 }

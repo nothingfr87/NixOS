@@ -1,18 +1,21 @@
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz;
-in
+#let
+#  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz";
+#in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import "${home-manager}/nixos")
+      #(import "${home-manager}/nixos")
     ];
 
-  home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "backup";
-  home-manager.users.nothing = import ./home.nix;
+  # Home Manager
+  #home-manager = {
+  #  useGlobalPkgs = true;
+  #  useUserPackages = true;
+  #  users.nothing = import ./home.nix;
+  #  backupFileExtension = "backup";
+  #};
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -87,7 +90,6 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vim
     wget
     gcc
     libgcc
@@ -95,6 +97,8 @@ in
     git
     bat
     neovim
+    xclip
+    wl-clipboard
   ];
 
   # Font Packages
@@ -104,6 +108,5 @@ in
     noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
   ];
-
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; 
 }
