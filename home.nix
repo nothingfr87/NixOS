@@ -38,8 +38,8 @@
   # Vesktop
   programs.vesktop = {
     enable = true;
-  }
-  
+  };
+
   # Bash
   programs.bash = {
     enable = true;
