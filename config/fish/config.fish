@@ -15,4 +15,5 @@ function fish_prompt
 end
 
 alias nrs='sudo nixos-rebuild switch --flake .#null-pc'
+alias ns="nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
 alias vim='nvim'

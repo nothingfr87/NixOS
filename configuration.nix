@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -12,7 +12,6 @@
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "null-pc";
-
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -42,15 +41,13 @@
   services.dbus.enable = true;
   security.polkit.enable = true;
 
-
   # Enable the Cinnamon Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.cinnamon.enable = true;
 
-
   # Enable i3 Window Manager
   services.xserver.windowManager.i3 = {
-    enable = true; 
+    enable = true;
     extraPackages = with pkgs; [
       dmenu
       i3status
@@ -73,21 +70,19 @@
     pulse.enable = true;
   };
 
-  # Define the primary user account. 
+  # Define the primary user account.
   users.users.nothing = {
     isNormalUser = true;
     description = "nothing";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      vscodium
-      gimp
-      obsidian
+    extraGroups = [
+      "networkmanager"
+      "wheel"
     ];
   };
 
   # Enable Flakes
-  nix.settings.experimental-features = "nix-command flakes"; 
+  nix.settings.experimental-features = "nix-command flakes";
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -105,13 +100,15 @@
     wget
     tree
     btop
+    nix-search-tv
+    fzf
 
     # Git
     git
 
     # Coding
     neovim
-    
+
     # Desktop Utilties
     xclip
     wl-clipboard
@@ -122,9 +119,9 @@
   ];
 
   environment.variables = {
-    SUDO_EDITOR="nvim";
-    EDITOR="nvim";
-    VISUAL="nvim";
+    SUDO_EDITOR = "nvim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   # Font Packages
@@ -134,5 +131,5 @@
     noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
   ];
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "25.11";
 }
