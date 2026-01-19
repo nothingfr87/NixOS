@@ -43,30 +43,6 @@
     '';
   };
 
-  # Fish
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      vim = "nvim";
-      nrs = "sudo nixos-rebuild switch --flake .#null-pc";
-    };
-    functions.fish_prompt = {
-      body = ''
-        set_color 82
-        printf "%s" (whoami)
-
-        set_color normal
-        printf " in "
-
-        set_color 81
-        printf "%s" (prompt_pwd)
-
-        set_color normal
-        printf " %s " (prompt_char)
-      '';
-    };
-  };
-
   # Git
   programs.git = {
     enable = true;
@@ -86,4 +62,6 @@
     config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/i3status";
   home.file.".config/alacritty".source =
     config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/alacritty";
+  home.file.".config/fish".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/fish";
 }
