@@ -48,8 +48,8 @@
     };
   };
  
-  home.file.".config/nvim".source = ./config/nvim;
-  home.file.".config/i3".source = ./config/i3;
-  home.file.".config/i3status".source = ./config/i3status;
-  home.file.".config/alacritty".source = ./config/alacritty;
+  home.file.".config/nvim".source = lib.file.mkOutOfStoreSymlink "./config/nvim";
+  home.file.".config/i3".source = lib.file.mkOutOfStoreSymlink "./config/i3";
+  home.file.".config/i3status".source = lib.file.mkOutOfStoreSymlink "./config/i3status";
+  home.file.".config/alacritty".source = lib.file.mkOutOfStoreSymlink "./config/alacritty";
 }
