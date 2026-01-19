@@ -104,6 +104,7 @@
     bat
     wget
     tree
+    btop
 
     # Git
     git
