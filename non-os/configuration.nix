@@ -2,7 +2,6 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -11,6 +10,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  # Host name
   networking.hostName = "null-pc";
 
   # Enable networking
@@ -37,12 +37,20 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # XDG Portal
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
   # Enable DBUS and Policy Kit
   services.dbus.enable = true;
   security.polkit.enable = true;
 
   # Enable the Cinnamon Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
+  services.displayManager.ly.enable = true;
   services.xserver.desktopManager.cinnamon.enable = true;
 
   # Enable i3 Window Manager
@@ -81,11 +89,19 @@
     ];
   };
 
-  # Enable Flakes
-  nix.settings.experimental-features = "nix-command flakes";
+  # Home Manager
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
+    users.nothing = import ./home.nix;
+  };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  # Enable Flakes
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Install fish
   programs.fish.enable = true;
@@ -94,35 +110,13 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # Other
-    fastfetch
-    bat
     wget
     tree
-    btop
     nix-search-tv
-    fzf
-
-    # Git
     git
-
-    # Coding
-    neovim
-
-    # Desktop Utilties
     xclip
     wl-clipboard
-    alacritty
-    feh
-    picom
-    flameshot
   ];
-
-  environment.variables = {
-    SUDO_EDITOR = "nvim";
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-  };
 
   # Font Packages
   fonts.packages = with pkgs; [
@@ -130,6 +124,7 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
+    font-awesome
   ];
   system.stateVersion = "25.11";
 }
