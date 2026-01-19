@@ -8,7 +8,7 @@
   # User Packages
   home.packages = with pkgs; [
     ripgrep
-    # Language Servers
+    # Language Servers & Formatters
     typescript-language-server
     pyright
     clang-tools
@@ -16,6 +16,11 @@
     vscode-langservers-extracted
     nil
     nixpkgs-fmt
+    nixfmt
+    black
+    prettier
+    stylua
+
     # Languages Compilers & Interpreters
     lua
     nodejs
@@ -38,19 +43,47 @@
     '';
   };
 
+  # Fish
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      vim = "nvim";
+      nrs = "sudo nixos-rebuild switch --flake .#null-pc";
+    };
+    functions.fish_prompt = {
+      body = ''
+        set_color 82
+        printf "%s" (whoami)
+
+        set_color normal
+        printf " in "
+
+        set_color 81
+        printf "%s" (prompt_pwd)
+
+        set_color normal
+        printf " %s " (prompt_char)
+      '';
+    };
+  };
+
   # Git
   programs.git = {
     enable = true;
     settings = {
       user = {
         name = "Nothing";
-	      email = "173809041+nothingfr87@users.noreply.github.com";
+        email = "173809041+nothingfr87@users.noreply.github.com";
       };
     };
   };
- 
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/nvim";
-  home.file.".config/i3".source = config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/i3";
-  home.file.".config/i3status".source = config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/i3status";
-  home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/alacritty";
+
+  home.file.".config/nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/nvim";
+  home.file.".config/i3".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/i3";
+  home.file.".config/i3status".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/i3status";
+  home.file.".config/alacritty".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/nothing/non-os/config/alacritty";
 }

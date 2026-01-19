@@ -73,9 +73,11 @@
     pulse.enable = true;
   };
 
+  # Define the primary user account. 
   users.users.nothing = {
     isNormalUser = true;
     description = "nothing";
+    shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       vscodium
@@ -89,6 +91,9 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Install fish
+  programs.fish.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

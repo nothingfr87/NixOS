@@ -72,7 +72,7 @@ return {
           html = { "prettier" },
           css = { "prettier" },
           javascript = { "prettier" },
-          nix = { "nixpkgs-fmt" },
+          nix = { "nixfmt" },
         },
       })
 
