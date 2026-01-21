@@ -1,0 +1,41 @@
+* {
+/*
+  bg: @background;
+  bg-alt: @selected-normal-background;
+  fg: @foreground;
+  fg-alt: @selected-normal-foreground;
+*/
+  bg: #1a1b26;
+  bg-alt: #414868;
+  fg: #c0caf5;
+  fg-alt: #9aa5ce;
+  borderradius: 20px;
+  borderradiuselement: 20px;
+  buttonradius: 18px;
+  background-color: transparent;
+  text-color: @fg;
+}
+
+window {
+  width: 25%;
+}
+
+listview {
+  lines: 4;
+  margin: 0 0 0 0;
+  padding: 0;
+  columns: 1;
+  background-color: transparent;
+  scrollbar: false;
+  cycle: false;
+  border: 0;
+  border-radius: 0px;
+}
+
+prompt,
+entry,
+inputbar,
+textbox,
+textbox-prompt-colon {
+  enabled: false;
+}

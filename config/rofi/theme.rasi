@@ -1,0 +1,89 @@
+// Uncomment the lines to use pywal
+
+@theme "/dev/null"
+/*@import "~/.cache/wal/colors-rofi-dark.rasi"*/
+
+* {
+  /*
+  bg: @background;
+  bg-alt: @selected-normal-background;
+  fg: @foreground;
+  fg-alt: @selected-normal-foreground;
+  */
+
+  bg: #1a1b26;
+  bg-alt: #414868;
+  fg: #c0caf5;
+  fg-alt: #9aa5ce;
+  borderradius: 20px;
+  borderradiuselement: 20px;
+  buttonradius: 18px;
+  background-color: transparent;
+  text-color: @fg;
+}
+
+window {
+  width: 60%;
+  padding: 10px;
+  border: 0;         
+  transparency: "real";
+  background-color: @bg;
+  x-offset: 0em;
+  y-offset: 0em;
+}
+
+entry {
+  hide-cursor-on-empty: true;
+  placeholder: "Search...";
+  placeholder-color: @fg-alt;
+  text-color: @fg-alt;
+  border: 0em;
+  padding: 0.4em 0.54em 0.4em 0.54em;
+  background-color: @bg-alt;
+}
+
+textbox {
+  enabled: true;
+  padding: 0.4em 0.54em 0.4em 0.54em;
+  str: "Not Found!";
+  text-color: #f7768e; 
+  background-color: @bg-alt; 
+}
+
+element {
+  text-color: @fg-alt;
+  background-color: @bg;
+  padding: 5px;
+}
+
+element selected {
+  text-color: @fg;
+  background-color: @bg-alt;
+}
+
+element-text {
+  text-color: inherit;
+  padding: 0em;
+  highlight: bold underline;
+}
+
+element-icon {
+  size: 1em;
+}
+
+inputbar {
+  padding: 0em;
+  background-color: transparent;
+  children: [ entry ];
+  border: 0em;
+}
+
+listview {
+  margin: 0em;
+  padding: 0.8em 0em 0em 0em;
+  fixed-columns: false;
+  background-color: transparent;
+  scrollbar: false;
+  cycle: false;
+  border: 0em;
+}

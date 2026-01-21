@@ -47,21 +47,24 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal
+      xdg-desktop-portal-wlr
     ];
   };
 
   # Enable DBUS and Policy Kit
   services.dbus.enable = true;
   security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Install LightDM
-  services.xserver.displayManager.lightdm.enable = true;
+  services.displayManager.ly.enable = true;
 
-  # Enable the Cinnamon Desktop Environment.
-  services.xserver.desktopManager.cinnamon.enable = true;
-
-  # Enable i3 Window Manager
-  services.xserver.windowManager.i3.enable = true;
+  # Enable Sway Window Manager
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -117,6 +120,7 @@
     git
     xclip
     wl-clipboard
+    pavucontrol
     inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
@@ -131,7 +135,7 @@
 
   fonts.fontconfig = {
     defaultFonts = {
-      monospace = "JetBrainsMono Nerd Font";
+      monospace = [ "JetBrainsMono Nerd Font" ];
     };
   };
 

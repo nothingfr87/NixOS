@@ -1,0 +1,61 @@
+/*@import url("/home/nothing/.cache/wal/colors-waybar.css");*/ /* Uncomment this to use pywal, and change to your username */
+@import "./tokyonight.css";
+
+* {
+  font-family: "JetBrainsMono NF";
+  font-size: 12px;
+}
+
+window {
+  background: @color0;
+}
+
+#workspaces,
+#pulseaudio,
+#clock,
+#cpu,
+#memory,
+#network,
+#language,
+#custom-power {
+  padding: 0 8px;
+  margin-right: 8px;
+}
+#workspaces,
+#workspaces button {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+#workspaces button.focused {
+  color: @color7;
+  border-bottom: 2px solid @color7;
+}
+#pulseaudio {
+  color: @color5;
+  border-bottom: 2px solid @color5;
+}
+#network {
+  color: @color4;
+  border-bottom: 2px solid @color4;
+}
+#cpu {
+  color: @color6;
+  border-bottom: 2px solid @color6;
+}
+#memory {
+  color: @color2;
+  border-bottom: 2px solid @color2;
+}
+#language {
+  color: @color3;
+  border-bottom: 2px solid @color3;
+}
+#clock {
+  color: @color8;
+  border-bottom: 2px solid @color8;
+}
+#custom-power {
+  color: @color1;
+  border-bottom: 2px solid @color1;
+}

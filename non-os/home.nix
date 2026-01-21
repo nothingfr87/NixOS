@@ -29,20 +29,22 @@
     gimp
     obsidian
     fastfetch
-    alacritty
     picom
-    flameshot
-    feh
     neovim
     fzf
     bat
     btop
     pywal16
     imagemagick
-    lxappearance
-    i3status
-    dmenu
+    nwg-look
     pywalfox-native
+    foot
+    rofi
+    swaylock
+    waybar
+    grim
+    slurp
+    sway-contrib.grimshot
   ];
 
   # Vesktop
@@ -51,7 +53,6 @@
   # Firefox
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts = [ pkgs.pywalfox-native ];
   };
 
   # Bash
@@ -120,66 +121,36 @@
     };
   };
 
-  # Alacritty
-  programs.alacritty = {
+  # Foot
+  programs.foot = {
     enable = true;
     settings = {
-      window = {
-        padding = {
-          y = 10;
-          x = 10;
-        };
+      main = {
+        font = "JetBrainsMono NF:size=12";
+        pad = "10x10";
+        #include = "~/.cache/wal/colors-foot.ini"; # uncomment if you want to use pywal
       };
-      font = {
-        size = 10;
-        normal.family = "JetBrainsMono NF";
-        bold.family = "JetBrainsMono NF";
-        italic.family = "JetBrainsMono NF";
-      };
-      # general.import = [ "~/.cache/wal/colors-alacritty.toml" ]; # Uncomment this if you want to use pywal colors
       colors = {
-        bright = {
-          black = "#444b6a";
-          blue = "#7da6ff";
-          cyan = "#0db9d7";
-          green = "#b9f27c";
-          magenta = "#bb9af7";
-          red = "#ff7a93";
-          white = "#acb0d0";
-          yellow = "#ff9e64";
-        };
-        normal = {
-          black = "#32344a";
-          blue = "#7aa2f7";
-          cyan = "#449dab";
-          green = "#9ece6a";
-          magenta = "#ad8ee6";
-          red = "#f7768e";
-          white = "#787c99";
-          yellow = "#e0af68";
-        };
-        primary = {
-          background = "#1a1b26";
-          foreground = "#a9b1d6";
-        };
-      };
-    };
-  };
-
-  # i3status
-  programs.i3status = {
-    enable = true;
-    enableDefault = false;
-    general = {
-      interval = 1;
-      colors = true;
-    };
-    modules = {
-      "tztime local" = {
-        position = 10;
-        settings = {
-          format = "%I:%M %p |  %A,  %d %B %Y ";
-        };
+        foreground = "c0caf5";
+        background = "1a1b26";
+        regular0 = "1a1b26";
+        regular1 = "f7768e";
+        regular2 = "9ece6a";
+        regular3 = "e0af68";
+        regular4 = "7aa2f7";
+        regular5 = "bb9af7";
+        regular6 = "7dcfff";
+        regular7 = "cfc9c2";
+        bright0 = "414868";
+        bright1 = "f7768e";
+        bright2 = "9ece6a";
+        bright3 = "e0af68";
+        bright4 = "7aa2f7";
+        bright5 = "bb9af7";
+        bright6 = "7dcfff";
+        bright7 = "c0caf5";
+        dim0 = "565f89";
+        dim1 = "414868";
       };
     };
   };
@@ -189,6 +160,15 @@
     enable = true;
     config = {
       theme = "Catppuccin Mocha";
+    };
+  };
+
+  # GTK
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
     };
   };
 }

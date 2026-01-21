@@ -1,0 +1,52 @@
+{
+    "height": 30,
+    "spacing": 4,
+    "modules-left": ["sway/workspaces"],
+    "modules-center": [],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "sway/language", "clock", "tray", "custom/power"],
+     "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{name}"
+     },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 10,
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%I:%M %p | %Y, %B, %d}"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "  {used} GiB",
+        "tooltip": false
+    },
+    "network": {
+        "format-ethernet": "󰖩 Online",
+        "tooltip-format": "Connected via {gwaddr} ",
+        "format-disconnected": "󱚼 Offline"
+    },
+    "pulseaudio": {
+        "scroll-step": 5, 
+        "format": "{icon} {volume}%",
+        "format-icons": {
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+      "format": "⏻",
+      "tooltip": false,
+      "on-click": "/home/nothing/.config/waybar/scripts/powermenu.sh",
+      "interval": 0
+    },
+    "sway/language": {
+      "format": "  {short}"
+    }
+}
