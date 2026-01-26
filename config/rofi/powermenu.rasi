@@ -1,18 +1,21 @@
+configuration {
+  font: "JetBrainsMono Nerd Font 40";
+}
+
 * {
   bg: #1a1b26;
   bg-alt: #414868;
   fg: #c0caf5;
   fg-alt: #9aa5ce;
   borderradius: 20px;
-  borderradiuselement: 20px;
-  buttonradius: 18px;
   background-color: transparent;
   text-color: @fg;
 }
 
 window {
-  width: 25%;
-  padding: 1px;
+  width: 11em;
+  padding: 5px;
+  text-align: center;
 }
 
 listview {
@@ -25,6 +28,23 @@ listview {
   cycle: false;
   border: 0;
   border-radius: 0px;
+  layout: horizontal;
+}
+
+mainbox {
+  background-color: transparent;
+  spacing: 0; 
+  padding: 10px;
+  border-radius: @borderradius;
+  children: [ listview ];
+}
+
+element{
+  padding: 5px 10px;
+  margin: 2px 2px;
+  text-align: center;
+  border-radius: @borderradius;
+  border: 0;
 }
 
 prompt,

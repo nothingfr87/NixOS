@@ -10,7 +10,6 @@ NON-OS is my NixOS Configurations
 
 ![Preview](preview.png)
 ![Preview](preview2.png)
-![Preview](preview3.png)
 
 ---
 
@@ -69,4 +68,6 @@ NON-OS is my NixOS Configurations
 
 ## Noctalia
 
-you can either use waybar or noctalia shell, noctalia shell is active by default
+you can either use waybar, and rofi or noctalia shell, noctalia shell is active by default
+
+The default noctalia shell theme template is on, to turn it off, simply delete the lines that imports any external files, and uncomment the other lines

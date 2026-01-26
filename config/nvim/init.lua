@@ -50,6 +50,12 @@ require("config.lazy")
 -- Use my mappings
 require("config.mappings")
 
+-- LSP, Confrom & Blink
+require("config.lsp")
+
+-- Bufferline
+require("config.bufferline")
+
 -- Set Theme
 local function transparent()
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

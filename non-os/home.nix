@@ -13,7 +13,7 @@
     clang-tools
     lua-language-server
     vscode-langservers-extracted
-    nil
+    nixd
     nixpkgs-fmt
     nixfmt
     black
@@ -48,10 +48,10 @@
     mako
     swayidle
     swaybg
+    papirus-icon-theme
+    tokyonight-gtk-theme
+    bibata-cursors
   ];
-
-  # Vesktop
-  programs.vesktop.enable = true;
 
   # Firefox
   programs.firefox = {
@@ -110,6 +110,7 @@
       ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
       ff = "fastfetch";
       vim = "nvim";
+      cdnv = "cd ~/.config/nvim";
     };
   };
 
@@ -124,65 +125,11 @@
     };
   };
 
-  # Foot
-  programs.foot = {
-    enable = true;
-    settings = {
-      main = {
-        font = "JetBrainsMono NF:size=12";
-        pad = "10x10";
-      };
-      colors = {
-        foreground = "c0caf5";
-        background = "1a1b26";
-        regular0 = "1a1b26";
-        regular1 = "f7768e";
-        regular2 = "9ece6a";
-        regular3 = "e0af68";
-        regular4 = "7aa2f7";
-        regular5 = "bb9af7";
-        regular6 = "7dcfff";
-        regular7 = "cfc9c2";
-        bright0 = "414868";
-        bright1 = "f7768e";
-        bright2 = "9ece6a";
-        bright3 = "e0af68";
-        bright4 = "7aa2f7";
-        bright5 = "bb9af7";
-        bright6 = "7dcfff";
-        bright7 = "c0caf5";
-        dim0 = "565f89";
-        dim1 = "414868";
-      };
-    };
-  };
-
   # Bat
   programs.bat = {
     enable = true;
     config = {
       theme = "Catppuccin Mocha";
     };
-  };
-
-  # GTK
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.tokyonight-gtk-theme;
-      name = "Tokyonight-Dark";
-    };
-    iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus-Dark";
-    };
-  };
-
-  home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 24;
-    gtk.enable = true;
-    x11.enable = true;
   };
 }

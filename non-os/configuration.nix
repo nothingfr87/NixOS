@@ -52,13 +52,16 @@
     ];
   };
 
+  # Enable hardware accelerated graphics drivers
+  hardware.graphics.enable = true;
+
   # Enable DBUS and Policy Kit
   security.polkit.enable = true; # polkit
   services.gnome.gnome-keyring.enable = true; # secret service
   security.pam.services.swaylock = { };
 
-  # Install Ly
-  services.displayManager.ly.enable = true;
+  # Install GDM
+  services.displayManager.gdm.enable = true;
 
   # Enable Sway Window Manager
   programs.sway = {
@@ -94,6 +97,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "adbusers"
     ];
   };
 
@@ -113,6 +117,9 @@
 
   # Install fish
   programs.fish.enable = true;
+
+  # Install ADB
+  programs.adb.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

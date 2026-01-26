@@ -3,7 +3,7 @@ configuration {
   modes: "drun,run,window";
   fixed-num-lines: false;
   show-icons: true;
-  icon-theme: "Papirus";
+  icon-theme: "Icon";
   eh: 1;
   dpi: 100;
   drun-display-format: "{icon} {name}";

@@ -16,7 +16,9 @@
 
 window {
   width: 60%;
+  padding: 7px;
   border: 0;         
+  border-radius: @borderradius;
   transparency: "real";
   background-color: @bg;
   x-offset: 0em;
@@ -29,6 +31,7 @@ entry {
   placeholder-color: @fg-alt;
   text-color: @fg-alt;
   border: 0em;
+  border-radius: @borderradius;
   padding: 0.4em 0.54em 0.4em 0.54em;
   background-color: @bg-alt;
 }
@@ -39,12 +42,14 @@ textbox {
   str: "Not Found!";
   text-color: @error; 
   background-color: @error-container; 
+  border-radius: @borderradius;
 }
 
 element {
   text-color: @fg-alt;
   background-color: @bg;
   padding: 5px;
+  border-radius: @borderradius;
 }
 
 element selected {

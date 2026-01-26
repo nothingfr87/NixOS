@@ -8,18 +8,13 @@ return {
 			style = "night",
 		},
 	},
-	-- Pywal
-	{ "AlphaTechnolog/pywal.nvim" },
 	-- Indentation Guide Lines
 	{
-		"nvim-mini/mini.indentscope",
-		version = "*",
-		opts = {
-			symbol = "┃",
-			options = {
-				try_as_border = true,
-			},
-		},
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
 	},
 	-- Better Comments (Make comments better)
 	{
@@ -73,7 +68,7 @@ return {
 			require("colorizer").setup()
 		end,
 	},
-	-- nvim-tree to explore files
+	-- nvim-tree
 	{
 		"nvim-tree/nvim-tree.lua",
 		version = "*",
@@ -91,5 +86,13 @@ return {
 				number = false,
 			},
 		},
+	},
+	-- Bufferline
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		lazy = false,
+		priority = 1000,
 	},
 }
