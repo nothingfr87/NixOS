@@ -1,12 +1,19 @@
+// Remove the import rasi file, and uncomment the lines to use tokyonight
+
 @theme "/dev/null"
+@import "./colors.rasi"
 
 * {
-  bg: #1a1b26;
-  bg-alt: #414868;
-  fg: #c0caf5;
-  fg-alt: #9aa5ce;
-  error: #f7768e;
-  error-container: #8c4351;
+  bg: @primary-container;
+  bg-alt: @on-primary-fixed;
+  fg: @on-surface;
+  fg-alt: @on-surface-variant;
+  //bg: #1a1b26;
+  //bg-alt: #414868;
+  //fg: #c0caf5;
+  //fg-alt: #9aa5ce;
+  //error: #f7768e;
+  //error-container: #8c4351;
   borderradius: 20px;
   borderradiuselement: 20px;
   buttonradius: 18px;

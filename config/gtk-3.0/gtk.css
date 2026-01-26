@@ -1,2 +1,2 @@
-@import "noctalia.css";
-@import 'colors.css';
+/* Remove this line to use normal adwaita gtk theme */
+@import "colors.css";

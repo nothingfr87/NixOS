@@ -1,3 +1,5 @@
 [flavor]
-light = "noctalia"
-dark  = "noctalia"
+dark  = "matugen"
+light = "matugen"
+#dark = "tokyonight"
+#light = "tokyonight"

@@ -1,5 +1,6 @@
-/* @import "./colors.css"; */
-@import "./tokyonight.css";
+/* Change colors.css to tokyonight.css to use tokyonight colorscheme */
+/*                                          instead of using matugen */
+@import "./colors.css";
 
 * {
   font-family: "JetBrainsMono NF";
@@ -7,7 +8,7 @@
 }
 
 window {
-  background: @background;
+  background: @surface_container;
 }
 
 #workspaces,
@@ -20,24 +21,25 @@ window {
 #custom-power {
   padding: 0 8px;
   margin-right: 8px;
+  color: @on_surface;
 }
 
-#workspaces,
 #workspaces button {
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
   background: transparent;
+  color: @on_surface_variant;
+  margin: 0;
+  padding: 0 6px;
+  border-radius: 0;
 }
 
 #workspaces button.focused {
-  color: @secondary;
-  border-bottom: 2px solid @secondary;
+  color: @primary;
+  border-bottom: 2px solid @primary;
 }
 
 #pulseaudio {
-  color: @primary_container;
-  border-bottom: 2px solid @primary_container;
+  color: @primary;
+  border-bottom: 2px solid @primary;
 }
 
 #network {
@@ -46,8 +48,8 @@ window {
 }
 
 #cpu {
-  color: @secondary_container;
-  border-bottom: 2px solid @secondary_container;
+  color: @secondary;
+  border-bottom: 2px solid @secondary;
 }
 
 #memory {
@@ -61,8 +63,8 @@ window {
 }
 
 #clock {
-  color: @surface_variant;
-  border-bottom: 2px solid @surface_variant;
+  color: @tertiary;
+  border-bottom: 2px solid @tertiary;
 }
 
 #custom-power {

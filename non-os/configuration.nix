@@ -133,6 +133,7 @@
     wl-clipboard
     pavucontrol
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Font Packages
