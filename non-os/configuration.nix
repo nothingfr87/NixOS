@@ -8,7 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./packages.nix
+    ./packages/packages.nix
   ];
 
   # Bootloader.
