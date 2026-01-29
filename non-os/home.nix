@@ -6,6 +6,84 @@
   home.homeDirectory = "/home/nothing";
   home.stateVersion = "25.11";
 
+  # User Level Packages
+  home.packages = with pkgs; [
+    # Code Editors
+    neovim
+    vscode
+
+    # Tools & Formatters
+    gnumake
+    ripgrep
+    nixfmt
+    black
+    prettier
+    stylua
+
+    # LSP & Code Stuff
+    typescript-language-server
+    pyright
+    clang-tools
+    lua-language-server
+    vscode-langservers-extracted
+    nixd
+
+    # Language Interpreters & Compilers
+    lua
+    nodejs
+    python3
+    typescript
+    gcc
+    libgcc
+    clang
+    libclang
+    gdb
+
+    # Design & Writing & Interent
+    gimp
+    obsidian
+    firefox
+    libreoffice
+    onlyoffice-desktopeditors
+
+    # Desktop Utilities
+    nemo
+    celluloid
+    pix
+    feh
+    mpv
+    vlc
+    vicinae
+    rofi
+    slurp
+    grim
+    sway-contrib.grimshot
+    nwg-look
+    yazi
+    mako
+    swayidle
+    swaybg
+    swaylock
+    waybar
+
+    # Terminal
+    foot
+
+    # Terminal Utilities
+    fastfetch
+    fzf
+    bat
+    btop
+    imagemagick
+
+    # GTK
+    papirus-icon-theme
+    tokyonight-gtk-theme
+    bibata-cursors
+    adw-gtk3
+    adwaita-icon-theme
+  ];
+
   # Bash
   programs.bash = {
     enable = true;

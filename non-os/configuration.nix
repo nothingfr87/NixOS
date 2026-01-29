@@ -125,5 +125,27 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # System Level Packages
+  environment.systemPackages = [
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
+
+  # Font Packages
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    nerd-fonts.jetbrains-mono
+    font-awesome
+    monocraft
+  ];
+
+  fonts.fontconfig = {
+    defaultFonts = {
+      monospace = [ "JetBrainsMono Nerd Font" ];
+    };
+  };
+
   system.stateVersion = "25.11";
 }
