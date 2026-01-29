@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./packages.nix
   ];
 
   # Bootloader.
@@ -123,33 +124,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    wget
-    tree
-    nix-search-tv
-    git
-    xclip
-    wl-clipboard
-    pavucontrol
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
-
-  # Font Packages
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    nerd-fonts.jetbrains-mono
-    font-awesome
-  ];
-
-  fonts.fontconfig = {
-    defaultFonts = {
-      monospace = [ "JetBrainsMono Nerd Font" ];
-    };
-  };
 
   system.stateVersion = "25.11";
 }

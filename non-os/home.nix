@@ -1,64 +1,10 @@
 { config, pkgs, ... }:
 
 {
+
   home.username = "nothing";
   home.homeDirectory = "/home/nothing";
   home.stateVersion = "25.11";
-
-  # User Level Packages
-  home.packages = with pkgs; [
-    ripgrep
-    typescript-language-server
-    pyright
-    clang-tools
-    lua-language-server
-    vscode-langservers-extracted
-    nixd
-    nixpkgs-fmt
-    nixfmt
-    black
-    prettier
-    stylua
-    lua
-    nodejs
-    python3
-    typescript
-    gcc
-    libgcc
-    gdb
-    gimp
-    obsidian
-    fastfetch
-    neovim
-    fzf
-    bat
-    btop
-    imagemagick
-    nwg-look
-    foot
-    rofi
-    swaylock
-    waybar
-    grim
-    slurp
-    sway-contrib.grimshot
-    nemo
-    yazi
-    swaylock
-    mako
-    swayidle
-    swaybg
-    papirus-icon-theme
-    tokyonight-gtk-theme
-    bibata-cursors
-    adw-gtk3
-    adwaita-icon-theme
-  ];
-
-  # Firefox
-  programs.firefox = {
-    enable = true;
-  };
 
   # Bash
   programs.bash = {
@@ -73,6 +19,7 @@
       ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
       ff = "fastfetch";
       vim = "nvim";
+      cdnv = "cd ~/.config/nvim";
     };
     initExtra = ''
       export PS1='\[\e[38;5;82m\]\u\[\e[0m\] in \[\e[38;5;81m\]\w\[\e[0m\] \\$ '
