@@ -8,7 +8,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./packages/packages.nix
   ];
 
   # Bootloader.
@@ -57,12 +56,15 @@
   hardware.graphics.enable = true;
 
   # Enable DBUS and Policy Kit
-  security.polkit.enable = true; # polkit
-  services.gnome.gnome-keyring.enable = true; # secret service
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = { };
 
   # Install GDM
   services.displayManager.gdm.enable = true;
+
+  # Install GNOME
+  services.desktopManager.gnome.enable = true;
 
   # Install Sway Window Manager
   programs.sway = {

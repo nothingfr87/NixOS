@@ -74,6 +74,7 @@
     fzf
     bat
     btop
+    cmatrix
     imagemagick
 
     # GTK
