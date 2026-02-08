@@ -1,5 +1,4 @@
 return {
-	-- Tokoynight colorscheme
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -8,7 +7,6 @@ return {
 			style = "night",
 		},
 	},
-	-- Indentation Guide Lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
@@ -16,59 +14,28 @@ return {
 		---@type ibl.config
 		opts = {},
 	},
-	-- Better Comments (Make comments better)
 	{
 		"Djancyp/better-comments.nvim",
 		config = function()
 			require("better-comment").Setup()
 		end,
 	},
-	-- Render markdown directly in neovim
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {},
 	},
-	-- Icons for neovim
 	{ "nvim-tree/nvim-web-devicons" },
-	-- Which key helps for keybinds in neovim
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		opts = {
-			preset = "helix",
-		},
-		keys = {
-			{
-				"<leader>?",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
-	},
-	-- LuaLine (Better Status Line)
 	{
 		"nvim-lualine/lualine.nvim",
-		opts = {
-			options = {
-				icons_enabled = true,
-				theme = "auto",
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
-			},
-		},
 	},
-	-- Colorizer render colors in neovim
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
 		end,
 	},
-	-- nvim-tree
 	{
 		"nvim-tree/nvim-tree.lua",
 		version = "*",
@@ -76,23 +43,19 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		opts = {
-			filters = {
-				dotfiles = true,
-			},
-			view = {
-				width = 25,
-				side = "left",
-				number = false,
-			},
-		},
 	},
-	-- Bufferline
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
-		lazy = false,
-		priority = 1000,
+	},
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
+	{
+		"b0o/incline.nvim",
+		event = "VeryLazy",
 	},
 }

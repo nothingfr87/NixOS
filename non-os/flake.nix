@@ -6,13 +6,6 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    matugen = {
-      url = "github:InioX/Matugen?ref=refs/tags/v3.1.0";
-    };
   };
   outputs =
     inputs@{
@@ -27,7 +20,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          ./packages/packages.nix
           home-manager.nixosModules.home-manager
         ];
       };

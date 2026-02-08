@@ -60,16 +60,9 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = { };
 
-  # Install GDM
-  services.displayManager.gdm.enable = true;
-
-  # Install GNOME
-  services.desktopManager.gnome.enable = true;
-
-  # Install Sway Window Manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
+  services.xserver = {
+    displayManager.lightdm.enable = true;
+    desktopManager.cinnamon.enable = true;
   };
 
   # Configure keymap in X11
@@ -127,11 +120,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable ZRAM
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+    algorithm = "lz4";
+  };
+
   # System Level Packages
-  environment.systemPackages = [
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
+  environment.systemPackages = [ ];
 
   # Font Packages
   fonts.packages = with pkgs; [

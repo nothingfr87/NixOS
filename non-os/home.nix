@@ -35,39 +35,19 @@
     typescript
     gcc
     libgcc
-    clang
-    libclang
     gdb
 
     # Design & Writing & Interent
     gimp
+    libresprite
     obsidian
     firefox
     libreoffice
-    onlyoffice-desktopeditors
 
     # Desktop Utilities
-    nemo
-    celluloid
-    pix
-    feh
-    mpv
     vlc
-    vicinae
-    rofi
-    slurp
-    grim
-    sway-contrib.grimshot
-    nwg-look
-    yazi
-    mako
-    swayidle
-    swaybg
-    swaylock
-    waybar
-
-    # Terminal
-    foot
+    gnome-tweaks
+    gnome-extension-manager
 
     # Terminal Utilities
     fastfetch
@@ -76,6 +56,9 @@
     btop
     cmatrix
     imagemagick
+    zip
+    yazi
+    unzip
 
     # GTK
     papirus-icon-theme

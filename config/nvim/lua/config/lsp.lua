@@ -2,6 +2,7 @@
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local servers = {
+	"lua_ls",
 	"pyright",
 	"clangd",
 	"ts_ls",
@@ -15,19 +16,13 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	})
 end
-
--- Fixed lua_ls autoattach
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		if vim.bo.filetype == "lua" then
-			vim.lsp.enable("lua_ls")
-		end
-	end,
-})
 vim.lsp.enable(servers)
 
 -- NixD configurations
 vim.lsp.config("nixd", {
+	nixpkgs = {
+		expr = "import (builtins.getFlake(toString ./.)).inputs.nixpkgs {}",
+	},
 	formatting = {
 		command = { "nixfmt" },
 	},
