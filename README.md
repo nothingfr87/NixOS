@@ -2,14 +2,11 @@
 
 NON-OS is my NixOS Configurations
 
-(Switched to Sway, i3 files are deleted, and also removed pywal, access them by cloning then reverting to commit)
-
 ---
 
 # Preview
 
 ![Preview](preview.png)
-![Preview](preview2.png)
 
 ---
 
@@ -33,45 +30,14 @@ NON-OS is my NixOS Configurations
 #### Fonts
 - JetBrainsMono Nerd Font
 
-#### Bar/WM
-- Sway 
-- Waybar
+#### DE
+- Cinnamon
 
 #### Terminal
-- Foot 
+- GNOME Terminal
 
 #### Utilities
 - btop
 - grim
 - slurp
-- sway-contrib.grimshot 
 - fish (Shell)
-- Rofi (Application Launcher)
-
-#### GTK
-- Bibata Cursors
-- ADW GTK3 powered by noctalia-shell templates so it'll follow the wallpaper colors
-
----
-
-## Basic Keybinds
-
-<kbd>Super + Return</kbd> -> Opens Foot 
-
-<kbd>Super + Q</kbd> -> Closes Focused Application
-
-<kbd>Super + D</kbd> -> Runs Rofi 
-
-<kbd>PrtScr</kbd> / <kbd>Print</kbd> -> Takes a screenshot
-
----
-
-## Future Plans
-
-I am planning on disabling the noctalia shell templates, and use matugen
-
----
-
-## Noctalia
-
-you can either use waybar, and rofi or noctalia shell, noctalia shell is active by default
