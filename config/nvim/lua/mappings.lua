@@ -10,7 +10,6 @@ set("n", "<C-g>", ":Telescope live_grep<CR>", { desc = "Search Words in Telescop
 
 -- Toggle Term
 set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
-set("t", "<Esc>", "<C-\\><C-n>", { desc = "Switch to normal mode in toggle term" })
 
 -- Bufferline
 set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Cycle Through Tabs" })
@@ -29,3 +28,6 @@ set(
 	{ desc = "Enable Inlay Hints" }
 )
 set("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", { desc = "Format Current Document" })
+
+-- Remap keybinds
+set("t", "<Esc>", "<C-\\><C-n>", { desc = "Switch to normal mode in toggle term" })

@@ -1,5 +1,10 @@
 return {
 	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		opts = {},
+	},
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
@@ -48,11 +53,6 @@ return {
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
-	},
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 	{
 		"b0o/incline.nvim",

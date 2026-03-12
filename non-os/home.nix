@@ -11,6 +11,7 @@
     # Code Editors
     neovim
     vscode
+    helix
 
     # Tools & Formatters
     gnumake
@@ -49,6 +50,9 @@
     gnome-tweaks
     gnome-extension-manager
 
+    # Games
+    prismlauncher
+
     # Terminal Utilities
     fastfetch
     fzf
@@ -59,13 +63,13 @@
     zip
     yazi
     unzip
+    nix-search-tv
+    xclip
+    clipman
+    wl-clipboard
 
     # GTK
-    papirus-icon-theme
-    tokyonight-gtk-theme
     bibata-cursors
-    adw-gtk3
-    adwaita-icon-theme
   ];
 
   # Bash

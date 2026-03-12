@@ -58,12 +58,14 @@
   # Enable DBUS and Policy Kit
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.swaylock = { };
 
-  services.xserver = {
-    displayManager.lightdm.enable = true;
-    desktopManager.cinnamon.enable = true;
-  };
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.gnome.games.enable = false;
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+    gnome-user-docs
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -97,6 +99,11 @@
     ];
   };
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Home Manager
   home-manager = {
     useGlobalPkgs = true;
@@ -114,6 +121,9 @@
   # Install fish
   programs.fish.enable = true;
 
+  # Enable Flatpak
+  services.flatpak.enable = true;
+
   # Install ADB
   programs.adb.enable = true;
 
@@ -128,7 +138,12 @@
   };
 
   # System Level Packages
-  environment.systemPackages = [ ];
+  environment.systemPackages = with pkgs; [
+    tree
+    wget
+    vim
+    usbutils
+  ];
 
   # Font Packages
   fonts.packages = with pkgs; [
