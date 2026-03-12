@@ -4,12 +4,6 @@ NON-OS is my NixOS Configurations
 
 ---
 
-# Preview
-
-![Preview](preview.png)
-
----
-
 # How To Use
 
 - Clone this repo into your home directory
@@ -31,13 +25,8 @@ NON-OS is my NixOS Configurations
 - JetBrainsMono Nerd Font
 
 #### DE
-- Cinnamon
-
-#### Terminal
-- GNOME Terminal
+- GNOME 
 
 #### Utilities
 - btop
-- grim
-- slurp
 - fish (Shell)
