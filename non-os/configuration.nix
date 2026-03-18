@@ -40,7 +40,11 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    desktopManager.cinnamon.enable = true;
+    displayManager.lightdm.enable = true;
+  };
 
   # XDG Portal
   xdg.portal = {
@@ -58,14 +62,6 @@
   # Enable DBUS and Policy Kit
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
-
-  services.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.gnome.games.enable = false;
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-user-docs
-  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {

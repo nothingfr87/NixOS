@@ -25,8 +25,17 @@ NON-OS is my NixOS Configurations
 - JetBrainsMono Nerd Font
 
 #### DE
-- GNOME 
+- Cinnamon 
 
 #### Utilities
 - btop
 - fish (Shell)
+
+#### Editor
+- NeoVim
+
+---
+
+## Notes
+
+In my neovim configuration you can use either `blink.cmp` or `nvim-cmp`

@@ -37,6 +37,7 @@
     gcc
     libgcc
     gdb
+    rustup
 
     # Design & Writing & Interent
     gimp
@@ -47,11 +48,6 @@
 
     # Desktop Utilities
     vlc
-    gnome-tweaks
-    gnome-extension-manager
-
-    # Games
-    prismlauncher
 
     # Terminal Utilities
     fastfetch

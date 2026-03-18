@@ -2,6 +2,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
+		lazy = false,
 		opts = {},
 	},
 	{
@@ -12,13 +13,7 @@ return {
 			style = "night",
 		},
 	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-	},
+	{ "nvim-mini/mini.indentscope", version = "*" },
 	{
 		"Djancyp/better-comments.nvim",
 		config = function()
@@ -53,9 +48,5 @@ return {
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
-	},
-	{
-		"b0o/incline.nvim",
-		event = "VeryLazy",
 	},
 }

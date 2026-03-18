@@ -15,3 +15,11 @@ whichkey.keys = {
 	end,
 	desc = "Buffer Local Keymaps (which-key)",
 }
+
+-- Code Runner
+require("code_runner").setup({
+	filetype = {
+		c = "cd $dir && gcc $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt",
+		python = "python3 -u",
+	},
+})

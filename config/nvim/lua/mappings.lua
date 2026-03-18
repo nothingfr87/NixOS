@@ -11,6 +11,9 @@ set("n", "<C-g>", ":Telescope live_grep<CR>", { desc = "Search Words in Telescop
 -- Toggle Term
 set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
 
+-- Code Runner
+set("n", "<C-r>", ":RunCode<CR>", { desc = "Code Runner" })
+
 -- Bufferline
 set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Cycle Through Tabs" })
 set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Cycle Through Previuos Tabs" })

@@ -1,51 +1,41 @@
 -- BufferLine
 require("bufferline").setup({
 	options = {
+		separator_style = "slope",
 		hover = {
 			enabled = true,
 			delay = 200,
 			reveal = { "close" },
 		},
-		diagnostics = "nvim_lsp",
-		diagnostics_indicator = function(count, level, diagnostics_dict, context)
-			local s = " "
-			for e, n in pairs(diagnostics_dict) do
-				local sym = e == "error" and " " or (e == "warning" and " " or " ")
-				s = s .. n .. sym
-			end
-			return s
-		end,
+		custom_areas = {
+			right = function()
+				local result = {}
+				local seve = vim.diagnostic.severity
+				local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
+				local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
+				local info = #vim.diagnostic.get(0, { severity = seve.INFO })
+				local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
+				if error ~= 0 then
+					table.insert(result, { text = "  " .. error, link = "DiagnosticError" })
+				end
+				if warning ~= 0 then
+					table.insert(result, { text = "  " .. warning, link = "DiagnosticWarn" })
+				end
+				if hint ~= 0 then
+					table.insert(result, { text = "  " .. hint, link = "DiagnosticHint" })
+				end
+				if info ~= 0 then
+					table.insert(result, { text = "  " .. info, link = "DiagnosticInfo" })
+				end
+				return result
+			end,
+		},
 	},
-})
-
--- Incline
-local helpers = require("incline.helpers")
-local devicons = require("nvim-web-devicons")
-require("incline").setup({
-	window = {
-		padding = 0,
-		margin = { horizontal = 0 },
-	},
-	render = function(props)
-		local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-		if filename == "" then
-			filename = "[No Name]"
-		end
-		local ft_icon, ft_color = devicons.get_icon_color(filename)
-		local modified = vim.bo[props.buf].modified
-		return {
-			ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
-			" ",
-			{ filename, gui = modified and "bold,italic" or "bold" },
-			" ",
-		}
-	end,
 })
 
 -- Lualine
 require("lualine").setup({
 	options = {
-		icons_enabled = true,
 		theme = "auto",
 	},
 })
@@ -60,4 +50,33 @@ require("nvim-tree").setup({
 		side = "left",
 		number = false,
 	},
+})
+
+-- IndentScope
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function()
+		vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", {
+			fg = vim.fn.synIDattr(vim.fn.hlID("Function"), "fg"),
+			bold = true,
+		})
+	end,
+})
+
+require("mini.indentscope").setup({
+	draw = {
+		delay = 100,
+	},
+	mappings = {
+		object_scope = "ii",
+		object_scope_with_border = "ai",
+		goto_top = "[i",
+		goto_bottom = "]i",
+	},
+	options = {
+		border = "both",
+		indent_at_cursor = true,
+		n_lines = 10000,
+		try_as_border = true,
+	},
+	symbol = "▎",
 })
